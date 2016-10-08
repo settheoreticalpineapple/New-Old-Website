@@ -188,24 +188,26 @@ $(document).ready(function() {
 	
 	/* Decorative random boxes */
 	(function(){
-		var boxList = [];
-		for (var i = 0; i < Math.ceil(returnRandomNumberBetweenTheParameters(100, 200, true)); i++) {
-			boxList[i] = { width: returnRandomNumberBetweenTheParameters(5, 16, true) };	// Creating an object
-			boxList[i].height = boxList[i].width;											// Adding stuff to the object
-			var random = returnRandomNumberBetweenTheParameters(0, 1, true);				// A random boolean-ish
-			boxList[i].posX =
-				returnRandomNumberBetweenTheParameters(2, 35 - boxList[i].width) * random
-				+ returnRandomNumberBetweenTheParameters(65, 98 - boxList[i].width) * (1 - random);
-			boxList[i].posY = returnRandomNumberBetweenTheParameters(2, 98 - boxList[i].height);
-		}
-		
-		for (var i = 0; i < boxList.length; i++) {
-			$("main").append('<div style="'
-				+  'width: ' + boxList[i].width  + 'vmin; '
-				+ 'height: ' + boxList[i].height + 'vmin; '
-				+   'left: ' + boxList[i].posX   + 'vw; '
-				+    'top: ' + boxList[i].posY   + 'vh;' +
-			'"></div>');
+		if (window.innerWidth >= 960) {
+			var boxList = [];
+			for (var i = 0; i < Math.ceil(returnRandomNumberBetweenTheParameters(100, 200, true)); i++) {
+				boxList[i] = { width: returnRandomNumberBetweenTheParameters(5, 16, true) };	// Creating an object
+				boxList[i].height = boxList[i].width;											// Adding stuff to the object
+				var random = returnRandomNumberBetweenTheParameters(0, 1, true);				// A random boolean-ish
+				boxList[i].posX =
+					returnRandomNumberBetweenTheParameters(2, 35 - boxList[i].width) * random
+					+ returnRandomNumberBetweenTheParameters(65, 98 - boxList[i].width) * (1 - random);
+				boxList[i].posY = returnRandomNumberBetweenTheParameters(2, 98 - boxList[i].height);
+			}
+			
+			for (var i = 0; i < boxList.length; i++) {
+				$("main").append('<div style="'
+					+  'width: ' + boxList[i].width  + 'vmin; '
+					+ 'height: ' + boxList[i].height + 'vmin; '
+					+   'left: ' + boxList[i].posX   + 'vw; '
+					+    'top: ' + boxList[i].posY   + 'vh;' +
+				'"></div>');
+			}
 		}
 	})();
 	
