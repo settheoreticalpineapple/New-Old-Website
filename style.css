@@ -272,7 +272,9 @@ img[src="loading.png"] {
 	
 	main section:not(.active) {
 		display: none;
-	}	
+	}
+	
+	main > div {display: none;}
 
 	footer > div.icons {
 		width: calc(2 * 7vmin + 4 * 0.5vmin);
